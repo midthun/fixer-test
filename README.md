@@ -2,7 +2,7 @@
 
 # IMPORTANT!!
 
-I did not add my API key to the repository, since I am not sure how Github react to this, I think they might restrict access to it if they find public api keys etc. Please to into `src/environment/environment.ts` and set your API key before running the application.
+I did not include an API key to the repository, since I am not sure how Github react to this. I think they might restrict access to the repository if they find public api keys. Please go to into `src/environment/environment.ts` and set your API key before running the application.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
 
