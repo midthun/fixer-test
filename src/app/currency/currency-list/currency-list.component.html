@@ -1,16 +1,24 @@
-<h4>Base currency: {{ base }}</h4>
 
-<table class="rates" *ngIf="rates$ | async as rates; else loading">
-  <tr>
-    <th>Currency</th>
-    <th>Exchange Rate</th>
-  </tr>
-  <tr *ngFor="let key of objectKeys(rates)">
-    <td>{{ key }}</td>
-    <td>{{ rates[key] }}</td>
-  </tr>
-</table>
-
-<ng-template #loading>
-  <div class="spinner-border text-primary" role="status"></div>
+<ng-template #loadingOrError>
+  <div class="alert alert-danger" *ngIf="error; else loading">
+    {{ error.message }}
+  </div>
+  <ng-template #loading>
+    <div class="spinner-border text-primary" role="status"></div>
+  </ng-template>
 </ng-template>
+
+<div  *ngIf="rates$ | async as rates; else loadingOrError">
+  <h4>Base currency: {{ base }}</h4>
+
+  <table class="rates">
+    <tr>
+      <th>Currency</th>
+      <th>Exchange Rate</th>
+    </tr>
+    <tr *ngFor="let key of objectKeys(rates)">
+      <td>{{ key }}</td>
+      <td>{{ rates[key] }}</td>
+    </tr>
+  </table>
+</div>

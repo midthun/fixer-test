@@ -11,7 +11,6 @@ import { SearchHistoryItem } from 'src/app/currency/currency';
   styleUrls: ['./currency-convert-history.component.scss']
 })
 export class CurrencyConvertHistoryComponent implements OnInit, OnDestroy {
-
   history$: Observable<SearchHistoryItem[]>;
 
   private ngUnsubscribe: Subject<void> = new Subject<void>();
