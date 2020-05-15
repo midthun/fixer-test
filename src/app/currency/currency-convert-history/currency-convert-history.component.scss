@@ -1,0 +1,19 @@
+@import 'variables';
+@import 'bootstrap';
+
+table.history {
+  tr {
+    &:nth-child(even) {
+      background: $gray-200;
+    }
+  }
+
+  th, td {
+    padding: 5px 10px 5px 10px;
+  }
+
+  th {
+    font-weight: bold;
+    border-bottom: 1px solid #000;
+  }
+}

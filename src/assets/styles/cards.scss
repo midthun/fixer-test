@@ -1,0 +1,9 @@
+.card {
+  border: none;
+  box-shadow: $box-shadow-1;
+
+  .card-block {
+    padding: $card-padding;
+    position: relative;
+  }
+}

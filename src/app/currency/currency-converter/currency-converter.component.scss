@@ -1,0 +1,24 @@
+@import 'variables';
+
+input[type="text"].form-control,
+input[type="password"].form-control,
+input[type="email"].form-control,
+input[type="number"].form-control,
+textarea, textarea.form-control {
+  &.ng-touched.ng-invalid.ng-dirty {
+    border-color: $danger;
+  }
+
+  &:disabled {
+    color: $disabled;
+    border-color: $disabled;
+  }
+}
+
+.col-align-end {
+  align-self: flex-end;
+}
+
+.loading {
+  position: relative;
+}

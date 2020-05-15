@@ -1,0 +1,23 @@
+<div class="master-detail">
+  <div class="master">
+    <nav class="nav nav-pills">
+      <a class="nav-item nav-link" [routerLink]="['/convert']" routerLinkActive="active">
+        <i class="icon"></i> Convert
+      </a>
+      <a class="nav-item nav-link" [routerLink]="['/rates']" routerLinkActive="active">
+        <i class="icon"></i> Rates
+      </a>
+      <a class="nav-item nav-link" [routerLink]="['/history']" routerLinkActive="active">
+        <i class="icon"></i> History
+        <span class="badge badge-info">{{ history.length }}</span>
+      </a>
+    </nav>
+  </div>
+  <div class="detail">
+    <div class="card">
+      <div class="card-block">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

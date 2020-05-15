@@ -1,0 +1,27 @@
+
+<ng-container *ngIf="history$ | async as history; else loading">
+  <table class="history" *ngIf="history.length > 0; else nothing">
+    <tr>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Result</th>
+      <th>Exchange rate</th>
+    </tr>
+    <tr *ngFor="let item of history$ | async">
+      <td>{{ item.date | date:'medium' }}</td>
+      <td>{{ item.amount | currency:item.from }}</td>
+      <td>{{ item.from }}</td>
+      <td>{{ item.to }}</td>
+      <td>{{ item.result | currency:item.to }}</td>
+      <td>{{ item.rate }}</td>
+    </tr>
+  </table>
+
+  <ng-template #nothing>No history to show</ng-template>
+</ng-container>
+
+<ng-template #loading>
+  <div class="spinner-border text-primary" role="status"></div>
+</ng-template>

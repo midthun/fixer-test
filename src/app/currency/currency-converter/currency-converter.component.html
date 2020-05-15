@@ -1,0 +1,44 @@
+<div class="alert alert-danger" *ngIf="error">
+  {{ error.message }}
+</div>
+
+<form [formGroup]="form">
+  <div class="form-row align-items-center">
+    <div class="col-auto">
+       <label for="amount">Amount</label>
+      <input type="number" class="form-control" id="amount" formControlName="amount" placeholder="amount">
+    </div>
+
+    <div class="col-auto">
+      <label for="from">From</label>
+      <select class="custom-select" id="from" formControlName="from">
+        <option *ngFor="let rate of rates" [value]="rate">{{ rate }}</option>
+      </select>
+    </div>
+
+    <div class="col-auto">
+      <label for="to">From</label>
+      <select class="custom-select" id="to" formControlName="to">
+        <option *ngFor="let rate of rates" [value]="rate">{{ rate }}</option>
+      </select>
+    </div>
+
+    <div class="col-auto">
+       <label for="date">Date (optional)</label>
+      <input type="date" class="form-control" id="date" formControlName="date" placeholder="YYYY-MM-DD">
+    </div>
+
+    <div class="col-auto col-align-end">
+      <button type="button" class="btn btn-primary"
+        [disabled]="!form.valid || loading"
+        (click)="convertCurrency()">Convert</button>
+    </div>
+
+    <div class="col-auto loading col-align-end" *ngIf="loading">
+      <div class="spinner-border text-primary" role="status"></div>
+    </div>
+  </div>
+  <div class="converted-amount" *ngIf="convertedAmount">
+    <h4>Result: {{ convertedAmount | currency:form.get('to').value }}</h4>
+  </div>
+</form>
